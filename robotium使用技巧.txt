@@ -1,0 +1,6 @@
+1. 有时text view或者button的click方法会失效，咋办？答案是在被测程序的AndroidManifest.xml文件里加上这么一句：<supports-screens android:anyDensity="true"/>就行了。唉，当时为了找到这个解决方法可浪费了俺不少时间啊，最后在官网上找到答案了。
+
+2. 如果要想在robotium的测试程序里读写SD card肿么办？答案是在被测程序的AndroidManifest.xml文件里加上<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"></uses-permission>。注意是在被测程序里加上，在测试程序本身的manifest文件里加会很坑爹的。
+
+3. 还想在Java程序里加点脚本的特性肿么办？俺在网上找到一个好东东：beanshell，这个工具是free的使JAVA可以具备脚本特性的东东，比如你想使用eval，用它很方便，效果你懂得。。。使用前只需将beanshell的JAR导入到项目中即可。
